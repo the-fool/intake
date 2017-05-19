@@ -1,6 +1,6 @@
 webpackJsonp([2,5],{
 
-/***/ 20:
+/***/ 17:
 /***/ (function(module, exports) {
 
 /*
@@ -89,10 +89,10 @@ function toComment(sourceMap) {
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(295);
+var content = __webpack_require__(297);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // add the styles to the DOM
-var update = __webpack_require__(580)(content, {});
+var update = __webpack_require__(584)(content, {});
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
@@ -110,10 +110,10 @@ if(false) {
 
 /***/ }),
 
-/***/ 295:
+/***/ 297:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(20)(false);
+exports = module.exports = __webpack_require__(17)(false);
 // imports
 
 
@@ -125,7 +125,7 @@ exports.push([module.i, "/*!\n * Bootstrap v4.0.0-alpha.6 (https://getbootstrap.
 
 /***/ }),
 
-/***/ 580:
+/***/ 584:
 /***/ (function(module, exports) {
 
 /*
@@ -378,7 +378,7 @@ function updateLink(linkElement, obj) {
 
 /***/ }),
 
-/***/ 584:
+/***/ 588:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(220);
@@ -386,5 +386,5 @@ module.exports = __webpack_require__(220);
 
 /***/ })
 
-},[584]);
+},[588]);
 //# sourceMappingURL=styles.bundle.js.map

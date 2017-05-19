@@ -4,7 +4,7 @@ webpackJsonp([1,5],{
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MainContainer; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -76,8 +76,8 @@ var MainContainer = (function () {
 }());
 MainContainer = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-        template: __webpack_require__(541),
-        styles: [__webpack_require__(521)]
+        template: __webpack_require__(545),
+        styles: [__webpack_require__(524)]
     })
 ], MainContainer);
 
@@ -104,10 +104,10 @@ webpackEmptyContext.id = 216;
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dynamic__ = __webpack_require__(225);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_app_module__ = __webpack_require__(229);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__environments_environment__ = __webpack_require__(239);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__environments_environment__ = __webpack_require__(241);
 
 
 
@@ -124,7 +124,7 @@ __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dyna
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -142,8 +142,8 @@ var AppComponent = (function () {
 AppComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-root',
-        template: __webpack_require__(535),
-        styles: [__webpack_require__(516)]
+        template: __webpack_require__(538),
+        styles: [__webpack_require__(518)]
     })
 ], AppComponent);
 
@@ -155,11 +155,11 @@ AppComponent = __decorate([
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__core_core_module__ = __webpack_require__(231);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_component__ = __webpack_require__(228);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_routing__ = __webpack_require__(230);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__main_main_module__ = __webpack_require__(238);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__main_main_module__ = __webpack_require__(240);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -224,7 +224,7 @@ var Routing = __WEBPACK_IMPORTED_MODULE_0__angular_router__["a" /* RouterModule 
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common__ = __webpack_require__(30);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_platform_browser__ = __webpack_require__(23);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(224);
@@ -269,7 +269,7 @@ CoreModule = __decorate([
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Chart; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -297,7 +297,6 @@ var colorizer = function (colors) {
 };
 var Chart = (function () {
     function Chart() {
-        this.data = [];
         this.label = '';
         this.color = [148, 159, 177];
         this.lineChartLabels = ['00:00', '06:00', '12:00', '18:00', '24:00'];
@@ -321,6 +320,12 @@ var Chart = (function () {
                             max: this.max,
                         }
                     }]
+            },
+            tooltips: {
+                displayColors: false,
+                callbacks: {
+                    label: function (item, data) { return item.yLabel; }
+                }
             }
         };
     };
@@ -345,8 +350,8 @@ __decorate([
 Chart = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'pa-chart',
-        template: __webpack_require__(536),
-        styles: [__webpack_require__(517)]
+        template: __webpack_require__(539),
+        styles: [__webpack_require__(519)]
     })
 ], Chart);
 
@@ -358,7 +363,7 @@ Chart = __decorate([
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Charts; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -382,7 +387,7 @@ __decorate([
 Charts = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'pa-charts',
-        template: __webpack_require__(537),
+        template: __webpack_require__(540),
     })
 ], Charts);
 
@@ -391,10 +396,58 @@ Charts = __decorate([
 /***/ }),
 
 /***/ 234:
+/***/ (function(module, exports) {
+
+//# sourceMappingURL=history-item.model.js.map
+
+/***/ }),
+
+/***/ 235:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__history_item_model__ = __webpack_require__(234);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__history_item_model___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__history_item_model__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HistoryItem; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var HistoryItem = (function () {
+    function HistoryItem() {
+    }
+    return HistoryItem;
+}());
+__decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+    __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__history_item_model__["IHistoryItem"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__history_item_model__["IHistoryItem"]) === "function" && _a || Object)
+], HistoryItem.prototype, "item", void 0);
+HistoryItem = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+        selector: 'pa-history-item',
+        template: __webpack_require__(541),
+        styles: [__webpack_require__(520)]
+    })
+], HistoryItem);
+
+var _a;
+//# sourceMappingURL=history-item.js.map
+
+/***/ }),
+
+/***/ 236:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return History; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -418,8 +471,8 @@ __decorate([
 History = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'pa-history',
-        template: __webpack_require__(538),
-        styles: [__webpack_require__(518)]
+        template: __webpack_require__(542),
+        styles: [__webpack_require__(521)]
     })
 ], History);
 
@@ -427,16 +480,18 @@ History = __decorate([
 
 /***/ }),
 
-/***/ 235:
+/***/ 237:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__intake_buttons_intake_buttons__ = __webpack_require__(237);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__intake_button_intake_button__ = __webpack_require__(236);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__intake_buttons_intake_buttons__ = __webpack_require__(239);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__intake_button_intake_button__ = __webpack_require__(238);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__chart_chart__ = __webpack_require__(232);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__charts_charts__ = __webpack_require__(233);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__history_history__ = __webpack_require__(234);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__history_history__ = __webpack_require__(236);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__history_item_history_item__ = __webpack_require__(235);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return comps; });
+
 
 
 
@@ -447,17 +502,18 @@ var comps = [
     __WEBPACK_IMPORTED_MODULE_1__intake_button_intake_button__["a" /* IntakeButton */],
     __WEBPACK_IMPORTED_MODULE_2__chart_chart__["a" /* Chart */],
     __WEBPACK_IMPORTED_MODULE_3__charts_charts__["a" /* Charts */],
-    __WEBPACK_IMPORTED_MODULE_4__history_history__["a" /* History */]
+    __WEBPACK_IMPORTED_MODULE_4__history_history__["a" /* History */],
+    __WEBPACK_IMPORTED_MODULE_5__history_item_history_item__["a" /* HistoryItem */]
 ];
 //# sourceMappingURL=index.js.map
 
 /***/ }),
 
-/***/ 236:
+/***/ 238:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return IntakeButton; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -494,8 +550,8 @@ __decorate([
 IntakeButton = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'pa-intake-button',
-        template: __webpack_require__(539),
-        styles: [__webpack_require__(519)]
+        template: __webpack_require__(543),
+        styles: [__webpack_require__(522)]
     })
 ], IntakeButton);
 
@@ -503,11 +559,11 @@ IntakeButton = __decorate([
 
 /***/ }),
 
-/***/ 237:
+/***/ 239:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return IntakeButtons; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -549,8 +605,8 @@ __decorate([
 IntakeButtons = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'pa-intake-buttons',
-        template: __webpack_require__(540),
-        styles: [__webpack_require__(520)]
+        template: __webpack_require__(544),
+        styles: [__webpack_require__(523)]
     })
 ], IntakeButtons);
 
@@ -558,17 +614,17 @@ IntakeButtons = __decorate([
 
 /***/ }),
 
-/***/ 238:
+/***/ 240:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__swimlane_ngx_charts__ = __webpack_require__(240);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__swimlane_ngx_charts__ = __webpack_require__(242);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__swimlane_ngx_charts___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__swimlane_ngx_charts__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ng2_charts__ = __webpack_require__(525);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ng2_charts__ = __webpack_require__(528);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ng2_charts___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_ng2_charts__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ngx_bootstrap_modal__ = __webpack_require__(527);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__comps__ = __webpack_require__(235);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ngx_bootstrap_modal__ = __webpack_require__(530);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__comps__ = __webpack_require__(237);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__main_container__ = __webpack_require__(126);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MainModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -605,7 +661,7 @@ MainModule = __decorate([
 
 /***/ }),
 
-/***/ 239:
+/***/ 241:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -622,10 +678,10 @@ var environment = {
 
 /***/ }),
 
-/***/ 516:
+/***/ 518:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(20)(false);
+exports = module.exports = __webpack_require__(17)(false);
 // imports
 
 
@@ -640,10 +696,10 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 517:
+/***/ 519:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(20)(false);
+exports = module.exports = __webpack_require__(17)(false);
 // imports
 
 
@@ -658,10 +714,28 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 518:
+/***/ 520:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(20)(false);
+exports = module.exports = __webpack_require__(17)(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ 521:
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(17)(false);
 // imports
 
 
@@ -676,10 +750,10 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 519:
+/***/ 522:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(20)(false);
+exports = module.exports = __webpack_require__(17)(false);
 // imports
 
 
@@ -694,10 +768,10 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 520:
+/***/ 523:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(20)(false);
+exports = module.exports = __webpack_require__(17)(false);
 // imports
 
 
@@ -712,10 +786,10 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 521:
+/***/ 524:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(20)(false);
+exports = module.exports = __webpack_require__(17)(false);
 // imports
 
 
@@ -730,56 +804,63 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 535:
+/***/ 538:
 /***/ (function(module, exports) {
 
 module.exports = "<router-outlet></router-outlet>\n"
 
 /***/ }),
 
-/***/ 536:
+/***/ 539:
 /***/ (function(module, exports) {
 
 module.exports = "<div>\n  <div class=\"label\">\n    Triage {{label}}\n  </div>\n  <canvas baseChart width=\"170\" height=\"170\" [data]=\"data\" [labels]=\"lineChartLabels\" [options]=\"lineChartOptions\" [colors]=\"lineChartColors\" [legend]=\"lineChartLegend\" [chartType]=\"lineChartType\"></canvas>\n</div>\n"
 
 /***/ }),
 
-/***/ 537:
+/***/ 540:
 /***/ (function(module, exports) {
 
 module.exports = ""
 
 /***/ }),
 
-/***/ 538:
+/***/ 541:
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ 542:
 /***/ (function(module, exports) {
 
 module.exports = "<div id=\"history-title\">\n  History\n</div>\n<ul class=\"list-group\">\n  <li *ngFor=\"let h of history\" class=\"list-group-item level-{{h.level}}\">\n    <strong>Level {{h.level}} </strong> : {{ h.date }}\n  </li>\n</ul>\n"
 
 /***/ }),
 
-/***/ 539:
+/***/ 543:
 /***/ (function(module, exports) {
 
 module.exports = "<button type=\"button\" class=\"intake btn btn-outline level-{{level}}\" (click)=\"modal.show()\">{{label}}</button>\n<div bsModal #modal=\"bs-modal\" class=\"modal fade\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"triage-modal-label\" aria-hidden=\"true\">\n  <div class=\"modal-dialog modal-lg\">\n    <div class=\"modal-content\">\n      <div class=\"modal-header\">\n        <h4 class=\"modal-title pull-left\">Confirm Intake of {{ label }}</h4>\n        <button type=\"button\" class=\"close pull-right\" (click)=\"modal.hide()\" aria-label=\"Close\">\n          <span aria-hidden=\"true\">&times;</span>\n        </button>\n      </div>\n      <div class=\"modal-body\">\n        <strong>\n          Definition of {{ label }}\n        </strong>\n        <p>\n          <em>This is where the official explanation would go - detailing the Emergency Severity Index</em>\n        </p>\n\n        <div class=\"modal-footer\">\n          <button type=\"button\" class=\"btn btn-primary\" (click)=\"onConfirm.emit(level); modal.hide()\">Confirm</button>\n          <button type=\"button\" class=\"btn btn-secondary\" (click)=\"modal.hide()\">Cancel</button>\n         </div>\n\n      </div>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
-/***/ 540:
+/***/ 544:
 /***/ (function(module, exports) {
 
 module.exports = "<div class=\"card text-center light-blue-bg\">\n    <div class=\"card-block\">\n      <div class=\"card-title\">\n        Patient Intake Event\n      </div>\n        <div id=\"buttons-container\" class=\"row align-items-center\">\n            <div *ngFor=\"let level of levels\" class=\"col button-container\">\n              <pa-intake-button\n                (onConfirm)=\"addEvent.emit($event)\"\n                [level]=\"level.value\">\n                </pa-intake-button>\n            </div>\n        </div>\n    </div>\n</div>\n"
 
 /***/ }),
 
-/***/ 541:
+/***/ 545:
 /***/ (function(module, exports) {
 
 module.exports = "<div class=\"container mt-3\">\n  <div class=\"row align-items-center\">\n    <div class=\"col-8\">\n      <pa-intake-buttons (addEvent)=\"prependEvent($event)\"></pa-intake-buttons>\n    </div>\n    <div class=\"col\">\n      <pa-history [history]=\"history\"></pa-history>\n    </div>\n  </div>\n  <div class=\"col past-title row align-items-center\">\n    <h4>Past 24-hour History</h4>\n  </div>\n  <div class=\"chart-cont col row align-items-center\">\n    <div *ngFor=\"let c of charts\">\n      <pa-chart [color]=\"c.color\" [label]=\"c.label\" [data]=\"c.data\" [max]=\"max\"></pa-chart>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
-/***/ 582:
+/***/ 586:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(217);
@@ -787,5 +868,5 @@ module.exports = __webpack_require__(217);
 
 /***/ })
 
-},[582]);
+},[586]);
 //# sourceMappingURL=main.bundle.js.map
