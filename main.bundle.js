@@ -207,12 +207,12 @@ AppModule = __decorate([
 
 var rs = [
     {
-        path: 'main',
+        path: '',
         component: __WEBPACK_IMPORTED_MODULE_1__main_main_container__["a" /* MainContainer */]
     },
     {
         path: '**',
-        redirectTo: '/main'
+        redirectTo: '/'
     }
 ];
 var Routing = __WEBPACK_IMPORTED_MODULE_0__angular_router__["a" /* RouterModule */].forRoot(rs);
