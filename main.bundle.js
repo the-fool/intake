@@ -298,10 +298,19 @@ var colorizer = function (colors) {
 var Chart = (function () {
     function Chart() {
         this.data = [];
-        this.max = 10;
         this.label = '';
         this.color = [148, 159, 177];
         this.lineChartLabels = ['00:00', '06:00', '12:00', '18:00', '24:00'];
+        this.lineChartLegend = false;
+        this.lineChartType = 'line';
+        this.lineChartColors = [
+            colorizer(this.color)
+        ];
+    }
+    Chart.prototype.ngOnInit = function () {
+        this.lineChartColors = [
+            colorizer(this.color)
+        ];
         this.lineChartOptions = {
             responsive: false,
             scales: {
@@ -314,16 +323,6 @@ var Chart = (function () {
                     }]
             }
         };
-        this.lineChartLegend = false;
-        this.lineChartType = 'line';
-        this.lineChartColors = [
-            colorizer(this.color)
-        ];
-    }
-    Chart.prototype.ngOnInit = function () {
-        this.lineChartColors = [
-            colorizer(this.color)
-        ];
     };
     return Chart;
 }());
