@@ -65,6 +65,13 @@ var MainContainer = (function () {
             date: dater(i * 15)
         }); });
     }
+    MainContainer.prototype.prependEvent = function (level) {
+        var newEvent = {
+            level: level,
+            date: dater(0)
+        };
+        this.history = [newEvent].concat(this.history);
+    };
     return MainContainer;
 }());
 MainContainer = __decorate([
@@ -465,6 +472,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 var IntakeButton = (function () {
     function IntakeButton() {
+        this.onConfirm = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]();
         this.level = 0;
     }
     Object.defineProperty(IntakeButton.prototype, "label", {
@@ -476,6 +484,10 @@ var IntakeButton = (function () {
     });
     return IntakeButton;
 }());
+__decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"])(),
+    __metadata("design:type", Object)
+], IntakeButton.prototype, "onConfirm", void 0);
 __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
     __metadata("design:type", Object)
@@ -504,9 +516,13 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
 
 var IntakeButtons = (function () {
     function IntakeButtons() {
+        this.addEvent = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]();
         this.levels = [
             {
                 value: 1
@@ -527,6 +543,10 @@ var IntakeButtons = (function () {
     }
     return IntakeButtons;
 }());
+__decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"])(),
+    __metadata("design:type", Object)
+], IntakeButtons.prototype, "addEvent", void 0);
 IntakeButtons = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'pa-intake-buttons',
@@ -701,7 +721,7 @@ exports = module.exports = __webpack_require__(20)(false);
 
 
 // module
-exports.push([module.i, ".chart-cont {\n  margin-top: 3rem;\n  -webkit-box-pack: justify;\n      -ms-flex-pack: justify;\n          justify-content: space-between; }\n", ""]);
+exports.push([module.i, ".chart-cont {\n  -webkit-box-pack: justify;\n      -ms-flex-pack: justify;\n          justify-content: space-between; }\n\n.past-title {\n  margin-top: 1rem;\n  margin-bottom: 0.5rem;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center; }\n", ""]);
 
 // exports
 
@@ -721,7 +741,7 @@ module.exports = "<router-outlet></router-outlet>\n"
 /***/ 536:
 /***/ (function(module, exports) {
 
-module.exports = "<div>\n  <div class=\"label\">\n    Triage {{label}}\n  </div>\n  <canvas baseChart width=\"200\" height=\"200\" [data]=\"data\" [labels]=\"lineChartLabels\" [options]=\"lineChartOptions\" [colors]=\"lineChartColors\" [legend]=\"lineChartLegend\" [chartType]=\"lineChartType\"></canvas>\n</div>\n"
+module.exports = "<div>\n  <div class=\"label\">\n    Triage {{label}}\n  </div>\n  <canvas baseChart width=\"170\" height=\"170\" [data]=\"data\" [labels]=\"lineChartLabels\" [options]=\"lineChartOptions\" [colors]=\"lineChartColors\" [legend]=\"lineChartLegend\" [chartType]=\"lineChartType\"></canvas>\n</div>\n"
 
 /***/ }),
 
@@ -742,21 +762,21 @@ module.exports = "<div id=\"history-title\">\n  History\n</div>\n<ul class=\"lis
 /***/ 539:
 /***/ (function(module, exports) {
 
-module.exports = "<button type=\"button\" class=\"intake btn btn-outline level-{{level}}\" (click)=\"modal.show()\">{{label}}</button>\n<div bsModal #modal=\"bs-modal\" class=\"modal fade\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"triage-modal-label\" aria-hidden=\"true\">\n  <div class=\"modal-dialog modal-lg\">\n    <div class=\"modal-content\">\n      <div class=\"modal-header\">\n        <h4 class=\"modal-title pull-left\">Confirm Intake of {{ label }}</h4>\n        <button type=\"button\" class=\"close pull-right\" (click)=\"modal.hide()\" aria-label=\"Close\">\n          <span aria-hidden=\"true\">&times;</span>\n        </button>\n      </div>\n      <div class=\"modal-body\">\n        <strong>\n          Definition of {{ label }}\n        </strong>\n        <p>\n          <em>This is where the official explanation would go - detailing the Emergency Severity Index</em>\n        </p>\n\n        <div class=\"modal-footer\">\n          <button type=\"button\" class=\"btn btn-primary\" (click)=\"modal.hide()\">Confirm</button>\n          <button type=\"button\" class=\"btn btn-secondary\" (click)=\"modal.hide()\">Cancel</button>\n         </div>\n\n      </div>\n    </div>\n  </div>\n</div>\n"
+module.exports = "<button type=\"button\" class=\"intake btn btn-outline level-{{level}}\" (click)=\"modal.show()\">{{label}}</button>\n<div bsModal #modal=\"bs-modal\" class=\"modal fade\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"triage-modal-label\" aria-hidden=\"true\">\n  <div class=\"modal-dialog modal-lg\">\n    <div class=\"modal-content\">\n      <div class=\"modal-header\">\n        <h4 class=\"modal-title pull-left\">Confirm Intake of {{ label }}</h4>\n        <button type=\"button\" class=\"close pull-right\" (click)=\"modal.hide()\" aria-label=\"Close\">\n          <span aria-hidden=\"true\">&times;</span>\n        </button>\n      </div>\n      <div class=\"modal-body\">\n        <strong>\n          Definition of {{ label }}\n        </strong>\n        <p>\n          <em>This is where the official explanation would go - detailing the Emergency Severity Index</em>\n        </p>\n\n        <div class=\"modal-footer\">\n          <button type=\"button\" class=\"btn btn-primary\" (click)=\"onConfirm.emit(level); modal.hide()\">Confirm</button>\n          <button type=\"button\" class=\"btn btn-secondary\" (click)=\"modal.hide()\">Cancel</button>\n         </div>\n\n      </div>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
 /***/ 540:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"card text-center light-blue-bg\">\n    <div class=\"card-block\">\n      <div class=\"card-title\">\n        Patient Intake Event\n      </div>\n        <div id=\"buttons-container\" class=\"row align-items-center\">\n            <div *ngFor=\"let level of levels\" class=\"col button-container\">\n                <pa-intake-button [level]=\"level.value\">\n                </pa-intake-button>\n            </div>\n        </div>\n    </div>\n</div>\n"
+module.exports = "<div class=\"card text-center light-blue-bg\">\n    <div class=\"card-block\">\n      <div class=\"card-title\">\n        Patient Intake Event\n      </div>\n        <div id=\"buttons-container\" class=\"row align-items-center\">\n            <div *ngFor=\"let level of levels\" class=\"col button-container\">\n              <pa-intake-button\n                (onConfirm)=\"addEvent.emit($event)\"\n                [level]=\"level.value\">\n                </pa-intake-button>\n            </div>\n        </div>\n    </div>\n</div>\n"
 
 /***/ }),
 
 /***/ 541:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container mt-3\">\n  <div class=\"row align-items-center\">\n    <div class=\"col-8\">\n      <pa-intake-buttons></pa-intake-buttons>\n    </div>\n    <div class=\"col\">\n      <pa-history [history]=\"history\"></pa-history>\n    </div>\n  </div>\n  <div class=\"chart-cont row align-items-center\">\n    <div *ngFor=\"let c of charts\">\n      <pa-chart [color]=\"c.color\" [label]=\"c.label\" [data]=\"c.data\" [max]=\"max\"></pa-chart>\n    </div>\n  </div>\n</div>\n"
+module.exports = "<div class=\"container mt-3\">\n  <div class=\"row align-items-center\">\n    <div class=\"col-8\">\n      <pa-intake-buttons (addEvent)=\"prependEvent($event)\"></pa-intake-buttons>\n    </div>\n    <div class=\"col\">\n      <pa-history [history]=\"history\"></pa-history>\n    </div>\n  </div>\n  <div class=\"col past-title row align-items-center\">\n    <h4>Past 24-hour History</h4>\n  </div>\n  <div class=\"chart-cont col row align-items-center\">\n    <div *ngFor=\"let c of charts\">\n      <pa-chart [color]=\"c.color\" [label]=\"c.label\" [data]=\"c.data\" [max]=\"max\"></pa-chart>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
